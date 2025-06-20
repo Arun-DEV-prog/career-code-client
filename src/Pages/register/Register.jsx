@@ -1,17 +1,28 @@
 import Lottie from 'lottie-react'
-import React from 'react'
+import React, { use } from 'react'
 import d from '../../assets/Animation - 1750412027414.json'
 
 import { DotLottieReact } from '@lottiefiles/dotlottie-react'
+import { AuthContext } from '../../Context/Authcontext/AuthContext'
 
 const Register = () => {
+    const {  loading,createUser}=use(AuthContext)
 
     const handlRegister=(e)=>{
          e.preventDefault();
          const form=e.target;
          const email=form.email.value;
          const password=form.password.value;
-         console.log({email,password})
+       
+
+        //  creatUser
+        createUser(email,password)
+        .then(r=>{
+             console.log(r.user)
+        })
+        .catch(e=>{
+             console.log(e)
+        })
 
     }
   return (
