@@ -5,7 +5,7 @@ import Footer from '../Pages/Shared/Footer'
 
 const Rootlayout = () => {
   return (
-    <div>
+    <div className=' max-w-7xl'>
         <Navber />
         <Outlet />
         <Footer />
